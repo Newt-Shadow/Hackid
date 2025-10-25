@@ -1,0 +1,25 @@
+package com.yandex.metrica.impl.ac;
+
+import android.os.Bundle;
+import java.util.List;
+/* loaded from: classes2.dex */
+public class CrashpadServiceHelper {
+    public static boolean a(String str) {
+        if (markCrashCompleted(str) && deleteCompletedReports()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static native void cancelSetUpServiceHelper();
+
+    public static native boolean deleteCompletedReports();
+
+    private static native boolean markCrashCompleted(String str);
+
+    public static native Bundle readCrash(String str);
+
+    public static native List<Bundle> readOldCrashes();
+
+    public static native void setUpServiceHelper(String str);
+}

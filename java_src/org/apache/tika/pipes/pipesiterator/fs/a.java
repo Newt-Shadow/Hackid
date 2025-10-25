@@ -1,0 +1,4 @@
+package org.apache.tika.pipes.pipesiterator.fs;
+/* loaded from: classes2.dex */
+public abstract /* synthetic */ class a {
+}
