@@ -1085,101 +1085,108 @@
 .end method
 
 .method public verify(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
-    .locals 2
+    # inserted by apk-mitm to disable certificate pinning
+    .locals 1
+    const/4 v0, 0x1
+    return v0
 
-    .line 1
-    const-string v0, "host"
-
-    .line 2
-    .line 3
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/m;->e(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 4
-    .line 5
-    .line 6
-    const-string v0, "session"
-
-    .line 7
-    .line 8
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/m;->e(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 9
-    .line 10
-    .line 11
-    invoke-direct {p0, p1}, Lze/d;->d(Ljava/lang/String;)Z
-
-    .line 12
-    .line 13
-    .line 14
-    move-result v0
-
-    .line 15
-    const/4 v1, 0x0
-
-    .line 16
-    if-nez v0, :cond_0
-
-    .line 17
-    .line 18
-    goto :goto_0
-
-    .line 19
-    :cond_0
-    :try_start_0
-    invoke-interface {p2}, Ljavax/net/ssl/SSLSession;->getPeerCertificates()[Ljava/security/cert/Certificate;
-
-    .line 20
-    .line 21
-    .line 22
-    move-result-object p2
-
-    .line 23
-    aget-object p2, p2, v1
-
-    .line 24
-    .line 25
-    if-eqz p2, :cond_1
-
-    .line 26
-    .line 27
-    check-cast p2, Ljava/security/cert/X509Certificate;
-
-    .line 28
-    .line 29
-    invoke-virtual {p0, p1, p2}, Lze/d;->e(Ljava/lang/String;Ljava/security/cert/X509Certificate;)Z
-
-    .line 30
-    .line 31
-    .line 32
-    move-result p1
-
-    .line 33
-    move v1, p1
-
-    .line 34
-    goto :goto_0
-
-    .line 35
-    :cond_1
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    .line 36
-    .line 37
-    const-string p2, "null cannot be cast to non-null type java.security.cert.X509Certificate"
-
-    .line 38
-    .line 39
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    .line 40
-    .line 41
-    .line 42
-    throw p1
-    :try_end_0
-    .catch Ljavax/net/ssl/SSLException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 43
-    :catch_0
-    :goto_0
-    return v1
+    # commented out by apk-mitm to disable old method body
+    #
+    # .locals 2
+    #
+    # .line 1
+    # const-string v0, "host"
+    #
+    # .line 2
+    # .line 3
+    # invoke-static {p1, v0}, Lkotlin/jvm/internal/m;->e(Ljava/lang/Object;Ljava/lang/String;)V
+    #
+    # .line 4
+    # .line 5
+    # .line 6
+    # const-string v0, "session"
+    #
+    # .line 7
+    # .line 8
+    # invoke-static {p2, v0}, Lkotlin/jvm/internal/m;->e(Ljava/lang/Object;Ljava/lang/String;)V
+    #
+    # .line 9
+    # .line 10
+    # .line 11
+    # invoke-direct {p0, p1}, Lze/d;->d(Ljava/lang/String;)Z
+    #
+    # .line 12
+    # .line 13
+    # .line 14
+    # move-result v0
+    #
+    # .line 15
+    # const/4 v1, 0x0
+    #
+    # .line 16
+    # if-nez v0, :cond_0
+    #
+    # .line 17
+    # .line 18
+    # goto :goto_0
+    #
+    # .line 19
+    # :cond_0
+    # :try_start_0
+    # invoke-interface {p2}, Ljavax/net/ssl/SSLSession;->getPeerCertificates()[Ljava/security/cert/Certificate;
+    #
+    # .line 20
+    # .line 21
+    # .line 22
+    # move-result-object p2
+    #
+    # .line 23
+    # aget-object p2, p2, v1
+    #
+    # .line 24
+    # .line 25
+    # if-eqz p2, :cond_1
+    #
+    # .line 26
+    # .line 27
+    # check-cast p2, Ljava/security/cert/X509Certificate;
+    #
+    # .line 28
+    # .line 29
+    # invoke-virtual {p0, p1, p2}, Lze/d;->e(Ljava/lang/String;Ljava/security/cert/X509Certificate;)Z
+    #
+    # .line 30
+    # .line 31
+    # .line 32
+    # move-result p1
+    #
+    # .line 33
+    # move v1, p1
+    #
+    # .line 34
+    # goto :goto_0
+    #
+    # .line 35
+    # :cond_1
+    # new-instance p1, Ljava/lang/NullPointerException;
+    #
+    # .line 36
+    # .line 37
+    # const-string p2, "null cannot be cast to non-null type java.security.cert.X509Certificate"
+    #
+    # .line 38
+    # .line 39
+    # invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    #
+    # .line 40
+    # .line 41
+    # .line 42
+    # throw p1
+    # :try_end_0
+    # .catch Ljavax/net/ssl/SSLException; {:try_start_0 .. :try_end_0} :catch_0
+    #
+    # .line 43
+    # :catch_0
+    # :goto_0
+    # return v1
 .end method
